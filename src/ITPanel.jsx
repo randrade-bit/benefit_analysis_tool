@@ -23,7 +23,7 @@ export default function ITPanel({ results, inputs }) {
         <MetricCard label="Scheduling Tasks / Month" value={fmtNum(inputs.schedulingTasksPerMonth)} />
         <MetricCard
           label="Time Saved per Task"
-          value={`${fmtNum(inputs.avgTimePerTaskManual * (inputs.reportingReductionPct / 100))} min`}
+          value={`${fmtNum(r.timeSavedPerTask)} min`}
           note={`From ${inputs.avgTimePerTaskManual} min manual avg`}
         />
         <MetricCard
