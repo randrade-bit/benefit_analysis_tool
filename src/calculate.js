@@ -133,6 +133,14 @@ export function calculate(inputs) {
   const projectedSSR =
     (projectedFCOTS / 100) * (1 - projectedCancellationRate / 100) * 100;
 
+  // Display helpers — keeps all math out of components
+  const timeSavedPerTask = avgTimePerTaskManual * (reportingReductionPct / 100);
+  const currentEfficiencyPct = currentEfficiency * 100;
+  const projectedEfficiencyPct = projectedEfficiency * 100;
+  const efficiencyImprovementPP = (projectedEfficiency - currentEfficiency) * 100;
+  const cancellationRateReductionPP = computedCancellationRate - projectedCancellationRate;
+  const ssrImprovementPP = projectedSSR - currentSSR;
+
   return {
     annualCancellationsTotal,
     computedCancellationRate,
@@ -185,5 +193,11 @@ export function calculate(inputs) {
     projectedEfficiency,
     currentSSR,
     projectedSSR,
+    timeSavedPerTask,
+    currentEfficiencyPct,
+    projectedEfficiencyPct,
+    efficiencyImprovementPP,
+    cancellationRateReductionPP,
+    ssrImprovementPP,
   };
 }

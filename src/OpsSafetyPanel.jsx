@@ -46,7 +46,7 @@ export default function OpsSafetyPanel({ results, inputs }) {
           label="Cancellation Rate"
           before={fmtPct(r.computedCancellationRate)}
           after={fmtPct(r.projectedCancellationRate)}
-          delta={`-${fmtPct(r.computedCancellationRate - r.projectedCancellationRate)} pp`}
+          delta={`-${fmtPct(r.cancellationRateReductionPP)} pp`}
         />
         <MetricCard label="Avoidable Cancellations / Year" value={fmtInt(r.avoidableCancellations)} />
       </div>
@@ -61,15 +61,15 @@ export default function OpsSafetyPanel({ results, inputs }) {
         />
         <BeforeAfterCard
           label="Scheduling Efficiency Score"
-          before={(r.currentEfficiency * 100).toFixed(1) + '%'}
-          after={(r.projectedEfficiency * 100).toFixed(1) + '%'}
-          delta={`+${((r.projectedEfficiency - r.currentEfficiency) * 100).toFixed(1)} pp`}
+          before={fmtPct(r.currentEfficiencyPct)}
+          after={fmtPct(r.projectedEfficiencyPct)}
+          delta={`+${fmtPct(r.efficiencyImprovementPP)} pp`}
         />
         <BeforeAfterCard
           label="Surgical Success Rate"
           before={fmtPct(r.currentSSR)}
           after={fmtPct(r.projectedSSR)}
-          delta={`+${fmtPct(r.projectedSSR - r.currentSSR)} pp`}
+          delta={`+${fmtPct(r.ssrImprovementPP)} pp`}
         />
       </div>
 
